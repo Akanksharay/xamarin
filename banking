@@ -1,0 +1,94 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp4
+{
+    class banking
+    {
+        public int balAmount;
+        public banking()
+        {
+            balAmount = 5000;
+        }
+        public void checkBalance()
+        {
+            Console.WriteLine("Balance:" + balAmount);
+        }
+        public void deposit()
+        {
+            Console.WriteLine("Enter amount to be deposited:");
+            int amt = int.Parse(Console.ReadLine());
+            balAmount += amt;
+            Console.WriteLine("Amount deposited...\nTotal balance:" +balAmount);
+        }
+        public void withdreawal()
+        {
+            Console.WriteLine("Enter amount to be withdrawn:");
+            int withdraw = int.Parse(Console.ReadLine());
+            if(withdraw>=(balAmount-5000))
+            {
+                Console.WriteLine("Insufficient Balance!!!");
+            }
+            else
+            {
+                if (balAmount > 5000)
+                {
+                    balAmount -= withdraw;
+                    Console.WriteLine("Amount Withdrawn...\nTotal Balance:" + balAmount);
+                }
+                else
+                {
+                    Console.WriteLine("Deposit Balance!!!");
+                }
+                
+            }
+        }
+    }
+}
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            banking b = new banking();
+            int ch;
+            do
+            {
+                Console.WriteLine("Enter your choice:\n 1. Balance\n 2. Deposit\n 3. Withdrawal\n");
+                ch = int.Parse(Console.ReadLine());
+                switch (ch)
+                {
+                    case 1:
+                        b.checkBalance();
+                        break;
+                    case 2:
+                        b.deposit();
+                        break;
+                    case 3:
+                        b.withdreawal();
+                        break;
+                    default:
+                        System.Environment.Exit(0);
+                        break;
+                }
+            } while (ch != 0);
+            Console.ReadKey();
+        }
+    }
+}
