@@ -22,29 +22,23 @@ namespace ConsoleApp4
             Console.WriteLine("Enter amount to be deposited:");
             int amt = int.Parse(Console.ReadLine());
             balAmount += amt;
-            Console.WriteLine("Amount deposited...\nTotal balance:" +balAmount);
+            Console.WriteLine("Amount deposited...");
         }
         public void withdreawal()
         {
+            int minbal;
             Console.WriteLine("Enter amount to be withdrawn:");
             int withdraw = int.Parse(Console.ReadLine());
-            if(withdraw>=(balAmount-5000))
+            minbal = balAmount - 5000;
+            if(withdraw>minbal)
             {
                 Console.WriteLine("Insufficient Balance!!!");
             }
-            else
+            else if (withdraw<minbal)
             {
-                if (balAmount > 5000)
-                {
-                    balAmount -= withdraw;
-                    Console.WriteLine("Amount Withdrawn...\nTotal Balance:" + balAmount);
-                }
-                else
-                {
-                    Console.WriteLine("Deposit Balance!!!");
-                }
-                
-            }
+                balAmount -= withdraw;
+                Console.WriteLine("Amount withdrawn...");
+            }             
         }
     }
 }
