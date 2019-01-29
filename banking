@@ -47,7 +47,6 @@ namespace ConsoleApp4
 
 
 
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,29 +59,67 @@ namespace ConsoleApp4
     {
         static void Main(string[] args)
         {
-            banking b = new banking();
-            int ch;
-            do
-            {
-                Console.WriteLine("Enter your choice:\n 1. Balance\n 2. Deposit\n 3. Withdrawal\n");
-                ch = int.Parse(Console.ReadLine());
-                switch (ch)
-                {
-                    case 1:
-                        b.checkBalance();
-                        break;
-                    case 2:
-                        b.deposit();
-                        break;
-                    case 3:
-                        b.withdreawal();
-                        break;
-                    default:
-                        System.Environment.Exit(0);
-                        break;
-                }
-            } while (ch != 0);
+            emp e = new emp();
+            Console.WriteLine("Enter employee name:");
+            e.Emp_name = Console.ReadLine();
+            Console.WriteLine("Enter employee id:");
+            e.Emp_id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Employee Name:" + e.Emp_name);
+            Console.WriteLine("Employee ID:" + e.Emp_id);
+            /* banking b = new banking();
+
+             int ch;
+             do
+             {
+                 Console.WriteLine("Enter your choice:\n 1. Balance\n 2. Deposit\n 3. Withdrawal\n");
+                 ch = int.Parse(Console.ReadLine());
+                 switch (ch)
+                 {
+                     case 1:
+                         b.checkBalance();
+                         break;
+                     case 2:
+                         b.deposit();
+                         break;
+                     case 3:
+                         b.withdreawal();
+                         break;
+                     default:
+                         System.Environment.Exit(0);
+                         break;
+                 }
+             } while (ch != 0);
+             */
             Console.ReadKey();
+        }
+    }
+}
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp4
+{
+    class emp
+    {
+        private string emp_name;
+        private int emp_id;
+
+        public string Emp_name
+        {
+            get => emp_name;
+            set => emp_name = value;
+        }
+        public int Emp_id
+        {
+            get => emp_id;
+            set => emp_id = value;
         }
     }
 }
